@@ -97,10 +97,3 @@ python main.py
 - **Data Augmentation:** Random transformations to improve model robustness.
 - **Logging:** TensorBoard integration for monitoring training and evaluation metrics.
 
----
-
-## **Future Work**
-
-- Implement more advanced architectures such as YOLO or Faster R-CNN.
-- Extend the dataset to support additional object classes.
-- Optimize the training pipeline for large-scale datasets.

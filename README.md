@@ -1,51 +1,95 @@
-# Project Overview
+# PyTorch Vision Models and Tools
 
-This repository is organized into five main directories, each dedicated to specific aspects of image processing and computer vision tasks. Below is a description of each directory along with the key concepts involved.
-
-## 1. Image_Classification_and_Segmentation
-This directory focuses on combining image classification with image segmentation to identify and label objects in images.
-
-### Key Concepts:
-- **Image Segmentation:** Dividing an image into regions or objects for easier analysis.
-- **Feature Extraction:** Extracting features from images to feed into classification models.
-- **Pixel-Level Classification:** Assigning a class label to each pixel.
+This repository contains implementations for various computer vision tasks, including image classification, semantic segmentation, and object detection. The repository is organized into five key modules:
 
 ---
 
-## 2. Image_Classification_with_CNN
-This directory implements image classification using Convolutional Neural Networks (CNNs). It demonstrates the use of CNN layers to extract spatial features from images.
+## 1. Image Classification and Segmentation
 
-### Key Concepts:
-- **Convolutional Layers:** Learning spatial hierarchies in image data.
-- **Pooling Layers:** Reducing the spatial dimensions of feature maps.
-- **Fully Connected Layers:** Performing classification tasks based on extracted features.
+### Overview
+This module includes implementations for image classification and semantic segmentation using convolutional neural networks (CNNs) and fully convolutional networks (FCNs).
+
+### Features
+- **Custom Data Transforms**:
+  - Includes resizing, cropping, padding, and augmentation techniques like random horizontal flips and color jitter.
+  - Input normalization with ImageNet statistics.
+- **CNN Classifier**:
+  - Residual CNN architecture for class probability prediction.
+- **FCN for Segmentation**:
+  - Skip connections and transposed convolutions for dense predictions.
+  - IoU metric evaluation for segmentation.
+
+### Training and Visualization
+- Training utilities with optimizers (SGD, Adam) and metrics for accuracy and IoU.
+- Visualization of predictions for classification and segmentation.
 
 ---
 
-## 3. Multi-Class_Image_Classification
-This directory focuses on solving multi-class classification problems, where images belong to one of several possible categories.
+## 2. Image Classification with CNN
 
-### Key Concepts:
-- **Softmax Activation:** Converting raw logits into probabilities.
-- **Cross-Entropy Loss:** Measuring the performance of classification models.
-- **Class Imbalance Handling:** Techniques like data augmentation and weighted loss.
+### Overview
+This module implements a CNN-based classification system for multi-class image classification tasks.
+
+### Features
+- **Custom Models**:
+  - Residual CNN and lightweight CNN architectures.
+- **Training Framework**:
+  - Efficient training logic with cross-entropy loss, batch size, and learning rate customization.
+  - Model checkpointing and validation.
+
+### Visualization
+- Displays random image samples with predicted labels and probabilities.
 
 ---
 
-## 4. Object_Detection
-This directory covers detecting objects within images and marking their locations with bounding boxes.
+## 3. Multi-Class Image Classification
 
-### Key Concepts:
-- **Bounding Box Regression:** Predicting the coordinates of object boundaries.
-- **Non-Maximum Suppression (NMS):** Filtering overlapping bounding boxes.
-- **Anchor Boxes:** Predefined boxes used for detecting objects of varying sizes.
+### Overview
+Focuses on multi-class classification using linear classifiers, MLPs, and custom loss functions.
+
+### Features
+- **Classifier Options**:
+  - Linear and MLP classifiers for different levels of complexity.
+- **Training Support**:
+  - Custom loss functions, accuracy metrics, and flexible training parameters.
+- **Visualization Tools**:
+  - Dataset visualization with image grids and predicted labels.
+
+### Future Enhancements
+- Adding support for more advanced architectures and automated hyperparameter tuning.
+
+---
+
+## 4. Object Detection
+
+### Overview
+Implements an object detection pipeline using heatmaps for object localization and size estimation.
+
+### Features
+- **Heatmap Processing**:
+  - Local maxima extraction and bounding box prediction from heatmaps.
+- **Detection Model**:
+  - Fully convolutional architecture with skip connections and transposed convolutions.
+- **Data Augmentation**:
+  - Random horizontal flips, color jitter, and heatmap generation.
+
+### Training and Evaluation
+- Uses BCEWithLogitsLoss for object presence detection and MSELoss for size estimation.
+- TensorBoard integration for monitoring metrics and predictions.
 
 ---
 
 ## 5. Transformations
-This directory includes data transformation techniques used to augment and preprocess images.
 
-### Key Concepts:
-- **Data Augmentation:** Enhancing dataset variability through transformations (e.g., flipping, rotation).
-- **Normalization:** Scaling image pixel values for consistent model performance.
-- **Randomized Transformations:** Improving model generalization through randomness.
+### Overview
+This module provides utilities for data preprocessing and augmentation.
+
+### Key Transformations
+- **RandomHorizontalFlip**:
+  - Flips images and corresponding labels with a probability.
+- **ColorJitter**:
+  - Adjusts brightness, contrast, and saturation.
+- **ToTensor**:
+  - Converts images into PyTorch tensors.
+- **Compose**:
+  - Chains multiple transformations for sequential application.
