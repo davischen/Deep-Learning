@@ -39,19 +39,6 @@ This project implements a CNN-based classification system using PyTorch. It incl
 
 ---
 
-## **Installation**
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-repo-name/cnn-classifier.git
-   ```
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
----
-
 ## **Usage**
 
 ### **Training**
@@ -82,12 +69,3 @@ python visualize_data.py val_data -n 6
 - **Custom Loss Function:** Implements `ClassificationLoss` for efficient cross-entropy computation.
 - **Dataset Management:** Supports easy loading and preprocessing of labeled image datasets.
 - **Visualization Tools:** Provides utilities for visualizing dataset samples and model predictions.
-
----
-
-## **Future Work**
-
-- Expand the CNN architecture with additional layers and features.
-- Add support for data augmentation to improve model generalization.
-- Include automated hyperparameter tuning.
-- Optimize the training process for larger datasets and distributed training environments.
